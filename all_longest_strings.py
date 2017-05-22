@@ -1,10 +1,10 @@
 def allLongestStrings(inputArray):
     # find the longest string
-    max_string = max(len(x) for x in array)
+    max_string = max(len(x) for x in inputArray)
 
-    count = 0
+    longest_strings =[]
     for str in inputArray:
         if len(str) == max_string:
-            count += 1
+            longest_strings.append(str)
 
-    return count
+    return longest_strings
