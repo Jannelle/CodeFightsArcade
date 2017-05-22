@@ -5,3 +5,5 @@ def shapeArea(n):
         area = (2 * multiplier) + area
         multiplier += 2
     return area
+Below we will define an n-interesting polygon. Your task is to find the area of a polygon for a given n.
+
