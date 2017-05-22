@@ -1,10 +1,10 @@
 def allLongestStrings(inputArray):
     # find the longest string
-    longest_string = max(len(x) for x in array)
-    print longest_string
+    max_string = max(len(x) for x in array)
 
-    # loop through each string in the array
-        # if the string's length matches the longest string, print it
+    count = 0
+    for str in inputArray:
+        if len(str) == max_string:
+            count += 1
 
-array = ["aba", "aa", "ad", "vcd", "aba"]
-print allLongestStrings(array)
+    return count
