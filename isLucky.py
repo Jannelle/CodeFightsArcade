@@ -5,6 +5,6 @@ def isLucky(n):
     first_half = ticket_list[:half]
     second_half = ticket_list[half:]
 
+    return sum(first_half) == sum(second_half)
 
-n = 123456
 print isLucky(n)
