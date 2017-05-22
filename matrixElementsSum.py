@@ -1,6 +1,5 @@
 def matrixElementsSum(matrix):
-    pass
-    # loop through each matrix from the 2nd row on
+
     j = 0
     for row in matrix[1:]:
 
@@ -13,12 +12,4 @@ def matrixElementsSum(matrix):
 
         j += 1
 
-    print sum([sum(l) for l in matrix])
-
-
-matrix = [[0, 1, 1, 2],
-          [0, 5, 0, 0],
-          [2, 0, 3, 3]]
-
-
-print matrixElementsSum(matrix)
+    return sum([sum(l) for l in matrix])
