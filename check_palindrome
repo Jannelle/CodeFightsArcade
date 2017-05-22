@@ -1,0 +1,13 @@
+def checkPalindrome(inputString):
+    i = len(inputString) - 1
+    j = 0
+    for letter in inputString:
+        if inputString[j] == inputString[i]:
+            answer = True
+        else:
+            return False
+        i -= 1
+        j += 1
+
+    return answer
+
