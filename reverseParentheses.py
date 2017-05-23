@@ -38,6 +38,3 @@ def to_reverse(open, str):
         closed_index += 1
 
     return phrase[:-1]
-
-ab = "xxx(cba)xx(bac)x"
-print reverseParentheses(ab)
