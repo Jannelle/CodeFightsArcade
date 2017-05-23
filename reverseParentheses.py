@@ -38,3 +38,7 @@ def to_reverse(open, str):
         closed_index += 1
 
     return phrase[:-1]
+
+x = 'I(CU(VE(RE)UV)OY)YM)OL)H'
+print reverseParentheses(x)
+
