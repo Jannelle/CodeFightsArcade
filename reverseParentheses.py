@@ -2,22 +2,22 @@ import re
 
 def reverseParentheses(s):
 
-    # make a list of all open parenthesis indices
+    # reverse open_indices so that the innermost goes first
     open_indices = sorted(get_indices('\(', s), reverse=True)
-    close_indices = get_indices('\)', s)
+    closed_indices = get_indices('\)', s)
 
     for i in range(0, len(open_indices)):
-        print s[open_indices[i] + 1:close_indices[i]]
+        # save the strings before and after the parentheses to pre/append later
+        first_part = s[:open_indices[i]]
+        last_part = s[closed_indices[i] + 1 :]
 
-    # loop this for each parenthetical:
-        # get the innermost parenthetical
-            # the innermost is the open parenthesis with the largest index
-                # find all open parenthesis indices
-                # make a list of these parenthesis
-                # find the largest value in this list
-                    # reverse it
-        # get the next parenthetical (outward)
+        # this is the phrase to reverse
+        to_reverse = s[open_indices[i] + 1:closed_indices[i]]
+        reversed_string = '(' + to_reverse[::-1] + ')'
 
+        s = first_part + reversed_string + last_part
+
+    print s
 
 def get_indices(delimiter, str):
 
