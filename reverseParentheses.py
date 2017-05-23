@@ -6,16 +6,18 @@ def reverseParentheses(s):
     open_indices = sorted(get_indices('\(', s), reverse=True)
     closed_indices = get_indices('\)', s)
 
+    new_string = s
+    opens = 0
     for i in range(0, len(open_indices)):
+        # this is the phrase to reverse
+        reversed_string = to_reverse(open_indices[i], opens, new_string)[::-1]
+
         # save the strings before and after the parentheses to pre/append later
         first_part = s[:open_indices[i]]
-        last_part = s[closed_indices[i] + 1:]
-
-        # this is the phrase to reverse
-        to_reverse = s[open_indices[i] + 1:closed_indices[i]]
-        reversed_string = to_reverse[::-1]
+        last_part = s[open_indices[i] + len(reversed_string) + 2:] #+2 for the closed parenthesis
 
         new_string = first_part + '(' + reversed_string + ')' + last_part
+        opens += 1
 
     return new_string.replace('(', '').replace(')', '')
 
@@ -27,5 +29,19 @@ def get_indices(delimiter, str):
 
     return indices_list
 
-ab = 'x(1(ab)2)x'
+
+def to_reverse(open, str):
+    # from the given open parenthesis to the first closed parenthesis
+    closed_index = str.index(')', open)
+    phrase = str[open + 1:closed_index]
+
+    # we need to make sure there's enough closed parenthesis to covered the open
+    while phrase.count('(') >= phrase.count(')'):
+        phrase += str[closed_index]
+        closed_index += 1
+
+    return phrase[:-1]
+
+ab = 'xx(12(ab)34)xx'
+
 print reverseParentheses(ab)
