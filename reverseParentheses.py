@@ -9,15 +9,15 @@ def reverseParentheses(s):
     for i in range(0, len(open_indices)):
         # save the strings before and after the parentheses to pre/append later
         first_part = s[:open_indices[i]]
-        last_part = s[closed_indices[i] + 1 :]
+        last_part = s[closed_indices[i] + 1:]
 
         # this is the phrase to reverse
         to_reverse = s[open_indices[i] + 1:closed_indices[i]]
-        reversed_string = '(' + to_reverse[::-1] + ')'
+        reversed_string = to_reverse[::-1]
 
-        s = first_part + reversed_string + last_part
+        new_string = first_part + '(' + reversed_string + ')' + last_part
 
-    print s
+    return new_string.replace('(', '').replace(')', '')
 
 def get_indices(delimiter, str):
 
@@ -27,5 +27,5 @@ def get_indices(delimiter, str):
 
     return indices_list
 
-ab = 'hi (jann(el)le) bye'
-reverseParentheses(ab)
+ab = 'x(1(ab)2)x'
+print reverseParentheses(ab)
