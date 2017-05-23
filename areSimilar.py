@@ -37,14 +37,5 @@ def areSimilar(a, b):
     # if there are more than two mismatching index, they are not similar
     if len(mismatching_a) > 2:
         return False
-
-    print mismatching_a
-    print mismatching_b
-
-
-    # if there are two mismatching indexes, see if they can be swapped
-
-
-a = [3, 2, 1]
-b = [1, 3, 2]
-print areSimilar(a, b)
+    else:
+        return True
