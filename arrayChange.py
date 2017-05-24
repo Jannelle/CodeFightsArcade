@@ -13,11 +13,12 @@ def arrayChange(inputArray):
     count = 0
     # do this until it's strictly increasing
     for i in range(0, len(inputArray) - 1):
-        while inputArray[i] >= inputArray[i + 1]:
-            inputArray[i + 1] += 1
-            count += 1
+        if inputArray[i] >= inputArray[i + 1]:
+            diff = inputArray[i] - inputArray[i + 1] + 1
+            inputArray[i + 1] = inputArray[i] + 1
+            count += diff
 
     return count
 
-x = [1, 6, 5]
+x = [1, 1, 1]
 print arrayChange(x)
